@@ -30,6 +30,4 @@ This project was created to p improve skills in building website.
 * Implement movie booking functionality
 * Improve responsiveness for all devices
 
-## Author
 
-Anushka

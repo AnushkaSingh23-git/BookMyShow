@@ -9,71 +9,94 @@
 </head>
 <body>
 
+  <!-- Top Navigation -->
   <nav class="fnav">
     <div class="left">
-      <img src="logo.svg">
-      <input 
-        type="text" 
-        id="searchInput"
-        placeholder="Search for movies,event,plays"
-        onkeydown="if(event.key==='Enter') searchShows()"
-      >
+      <img src="https://etimg.etb2bimg.com/photo/82177715.cms" alt="Logo">
+      <input type="text" id="searchInput" placeholder="Search for movies, events, plays"
+        onkeydown="if(event.key==='Enter') searchShows()" autocomplete="off">
     </div>
     <div class="right">
       <p>Location</p>
-      <button onclick="window.location.href='/signin'">Sign In</button>
+      <button onclick="window.location.href='signin.html'">Sign In</button>
       <i class="fa-solid fa-bars"></i>
     </div>
   </nav>
 
+  <!-- Secondary Navigation -->
   <nav class="sec-nav">
     <div class="s-left">
-      <p>Movies</p><p>Stream</p><p>Event</p>
-      <p>Plays</p><p>Sports</p><p>Activities</p>
+      <a href="#">Movies</a>
+      <a href="#">Stream</a>
+      <a href="#">Event</a>
+      <a href="#">Plays</a>
+      <a href="#">Sports</a>
+      <a href="#">Activities</a>
     </div>
     <div class="s-right">
-      <p>ListYourShow</p><p>Corporates</p>
-      <p>Offer</p><p>Gift Cards</p>
+      <a href="#">ListYourShow</a>
+      <a href="#">Corporates</a>
+      <a href="#">Offer</a>
+      <a href="#">Gift Cards</a>
     </div>
   </nav>
 
+  <!-- Main Banner -->
   <div class="main">
-    <img src="https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1772443283367_themessiexperienceindiawebshowcase1240x300mumbai.jpg">
+    <img src="https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1772443283367_themessiexperienceindiawebshowcase1240x300mumbai.jpg" alt="Banner">
   </div>
 
-  <!-- SEARCH RESULTS -->
-  <div id="searchResults" style="display:flex; flex-wrap:wrap; justify-content:center; gap:15px; padding:20px;"></div>
-
-  <!-- Section 1 -->
+  <!-- Recommended Movies -->
   <div class="container">
     <h2>Recommended Movies</h2>
     <div class="card" id="movieCard"><p>Loading...</p></div>
   </div>
 
-  <!-- Section 2 -->
+  <!-- Best of Live Events -->
   <div class="container">
     <h2>Best Of Live Events</h2>
     <div class="card" id="eventCard"><p>Loading...</p></div>
   </div>
 
-  <!-- Section 3 -->
+  <!-- Premiere -->
   <div class="container">
     <h2>PREMIERE</h2>
     <div class="card" id="premiereCard"><p>Loading...</p></div>
   </div>
 
-  <div class="footer">
-    <img src="logo.svg">
+  <!-- Movie Details Modal -->
+  <div id="movieModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; overflow-y:auto;">
+    <div class="modal-content" style="background:white; padding:20px; border-radius:8px; max-width:600px; width:90%; position:relative;">
+      <span id="closeModal" style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:20px;">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <img id="modalImg" style="width:100%; max-height:300px; object-fit:cover; border-radius:5px; margin:10px 0;">
+      <p id="modalDesc"></p>
+      <p><b>Rating:</b> <span id="modalRating"></span></p>
+      <p><b>Genres:</b> <span id="modalGenres"></span></p>
+      <p><b>Premiered:</b> <span id="modalPremiered"></span></p>
+      <p><b>Actors:</b> <span id="modalActors"></span></p>
+      <div id="modalButtons" style="display:flex; gap:10px; margin-top:15px;">
+        <button id="checkSeats" style="padding:8px 12px; background:green; color:white; border:none; border-radius:4px; cursor:pointer;">Check Seat Availability</button>
+        <button id="bookTickets" style="padding:8px 12px; background:rgb(244,69,98); color:white; border:none; border-radius:4px; cursor:pointer;">Book Tickets</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <img src="https://etimg.etb2bimg.com/photo/82177715.cms" alt="Logo">
     <div class="icon">
       <i class="fa-brands fa-facebook"></i>
       <i class="fa-brands fa-square-instagram"></i>
       <i class="fa-brands fa-twitter"></i>
       <i class="fa-brands fa-youtube"></i>
     </div>
-  </div>
+  </footer>
 
-  <script  src="js/search.js"> </script>
+  <!-- Scripts -->
+  <script src="js/fetch.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/booking.js"></script>
 
-  <script  src="js/fetch.js"> </script>
 </body>
 </html>

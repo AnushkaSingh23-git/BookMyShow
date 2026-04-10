@@ -1,7 +1,7 @@
 # BookMyShow Clone 🎬
 
-This is a frontend project inspired by the BookMyShow website.
-The project is built using **HTML and CSS** and recreates a movie booking website interface.
+This is a web development project inspired by the BookMyShow website.
+The project is built using htlm,css and js and recreates a movie booking website interface.
 
 ## Features
 
@@ -14,11 +14,7 @@ The project is built using **HTML and CSS** and recreates a movie booking websit
 
 * HTML
 * CSS
-
-## Project Structure
-
-index.html
-style.css
+* JS
 
 ## Purpose of the Project
 
@@ -29,5 +25,6 @@ This project was created to p improve skills in building website.
 * Add JavaScript for interactivity
 * Implement movie booking functionality
 * Improve responsiveness for all devices
+* Implementing Node.js and Mongo.db and somehow React
 
 

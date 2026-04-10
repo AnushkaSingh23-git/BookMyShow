@@ -18,7 +18,7 @@ The project is built using htlm,css and js and recreates a movie booking website
 
 ## Purpose of the Project
 
-This project was created to p improve skills in building website.
+This project was created to improve skills in building website.
 
 ## Future Improvements
 

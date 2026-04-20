@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
   const randomPage1 = Math.floor(Math.random() * 20);
   const randomPage2 = Math.floor(Math.random() * 20);
   const randomPage3 = Math.floor(Math.random() * 20);
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <p style="font-size:12px; color:green">⭐ ${rating}/10</p>
       <p style="font-size:11px; color:gray">${genre}</p>
     `;
-    // Attach click to open modal
     div.addEventListener('click', () => openModal(show));
     return div;
   }
@@ -29,9 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const cardContainer = document.getElementById(cardId);
         cardContainer.innerHTML = '';
         const shuffled = data.sort(() => Math.random() - 0.5);
-        shuffled.slice(0,5).forEach(show => {
-          cardContainer.appendChild(createCard(show));
-        });
+        shuffled.slice(0, 5).forEach(show => cardContainer.appendChild(createCard(show)));
       })
       .catch(() => {
         document.getElementById(cardId).innerHTML = '<p style="color:red; text-align:center">Failed to load.</p>';
@@ -39,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function openModal(show) {
+    // Store current show globally so booking.js can access it
+    window.currentShow = show;
+
     document.getElementById('movieModal').style.display = 'flex';
     document.getElementById('modalTitle').innerText = show.name;
     document.getElementById('modalImg').src = show.image?.medium ?? 'https://via.placeholder.com/210x295?text=No+Image';
@@ -47,26 +46,21 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('modalGenres').innerText = show.genres?.join(', ') ?? '';
     document.getElementById('modalPremiered').innerText = show.premiered ?? 'N/A';
     document.getElementById('modalActors').innerText = 'Fetching...';
-    // Fetch main cast
+
     fetch(`https://api.tvmaze.com/shows/${show.id}/cast`)
       .then(res => res.json())
       .then(cast => {
         const names = cast.map(c => c.person.name);
         document.getElementById('modalActors').innerText = names.join(', ') || 'N/A';
       });
-
-    // Buttons
-    document.getElementById('checkSeats').onclick = () => alert('Seats are available for this show!');
-    document.getElementById('bookTickets').onclick = () => alert('Redirecting to booking page...');
   }
 
   document.getElementById('closeModal').addEventListener('click', () => {
     document.getElementById('movieModal').style.display = 'none';
+    window.currentShow = null;
   });
 
-  // Load all sections
   loadShows(randomPage1, 'movieCard');
   loadShows(randomPage2, 'eventCard');
   loadShows(randomPage3, 'premiereCard');
-
 });

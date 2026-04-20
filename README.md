@@ -1,4 +1,4 @@
-# BookMyShow Clone 🎬
+# Show Adda Clone 🎬
 
 This is a web development project inspired by the BookMyShow website.
 The project is built using htlm,css and js and recreates a movie booking website interface.
